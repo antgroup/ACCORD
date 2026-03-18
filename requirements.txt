@@ -1,0 +1,11 @@
+torch
+torchvision
+pillow
+safetensors
+tqdm
+accelerate==1.6.0
+peft==0.12.0
+huggingface-hub==0.25.2
+transformers==4.37.2
+diffusers==0.28.0.dev0
+tensorboard==2.9.0

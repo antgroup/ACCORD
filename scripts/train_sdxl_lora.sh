@@ -1,0 +1,30 @@
+accelerate launch examples/compositional_inversion/sdxl_lora_textemb.py \
+    --pretrained_model_name_or_path='/workspace/ckpt/lsz/pretrained_models/stable_diffusion/stable-diffusion-xl-base-1.0' \
+    --pretrained_vae_model_name_or_path=/workspace/ckpt/lsz/pretrained_models/stable_diffusion/sdxl-vae-fp16-fix \
+    --vision_encoder_path1=/workspace/ckpt/lsz/pretrained_models/openai/clip-vit-large-patch14 \
+    --vision_encoder_path2=/workspace/ckpt/lsz/pretrained_models/laion/CLIP-ViT-bigG-14-laion2B-39B-b160k \
+    --train_data_dir='/workspace/ckpt/lsz/datasets/stylebench/3D_Model_01' \
+    --resolution=512 \
+    --random_flip \
+    --learning_rate=1e-4 \
+    --train_batch_size=4 \
+    --max_train_steps=1000 \
+    --lr_scheduler='cosine_with_restarts' \
+    --lr_warmup_steps=0 \
+    --snr_gamma=5.0 \
+    --noise_offset=0.1 \
+    --rank=64 \
+    --seed=0 \
+    --checkpoints_total_limit=10 \
+    --output_dir='/workspace/ckpt/lsz/custom_experiments/decouple_by_loss/sb_lora_textemb_xl_ours_dc0.15_pd0.001/3D_Model_01' \
+    --validation_steps=100 \
+    --validation_prompt_file="/workspace/ckpt/lsz/datasets/stylebench/3D_Model_01/validation_prompts.txt" \
+    --validation_negative_prompt="monochrome, lowres, bad anatomy, worst quality, low quality" \
+    --validation_scheduler="DDIM" \
+    --checkpointing_steps=200 \
+    --valid_mode="style" \
+    --reweight_cr_loss \
+	--detach_non_subject \
+	--correlation_weight=0.15 \
+	--prior_cr_loss_weight=0.001 \
+
