@@ -12,7 +12,7 @@ Official implementation of [*ACCORD: **A**lleviating **C**oncept **CO**upling th
 ## Environment Setup
 
 ```bash
-git clone https://github.com/ant-research/ACCORD
+git clone https://github.com/antgroup/ACCORD
 cd ACCORD
 pip install -r requirements.txt
 ```
@@ -118,4 +118,5 @@ If you find our work helpful, please cite our paper.
 }
 ```
 
-## LicenseThis project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+## License
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
